@@ -32,6 +32,7 @@ Voir `docs/SUITE_STANDARDS.md`.
 ## Versionnage
 
 Le projet suit Semantic Versioning.
+Reference actuelle: `0.2.0`.
 
 ## Licence
 
