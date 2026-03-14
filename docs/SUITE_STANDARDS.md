@@ -47,6 +47,25 @@ Structure minimale recommandee:
 - `MAJOR`: rupture de contrat.
 - Changement notable = entree `CHANGELOG`.
 
+### Policy de consommation OrchivisteKit
+
+Pour les depots consommateurs de `OrchivisteKit`:
+
+- Utiliser un **tag SemVer stable** (`vX.Y.Z`) et une declaration `Package.swift` epinglee a une version de release.
+- Ne pas utiliser `branch: \"main\"` pour une reference de production.
+- Ne pas utiliser une revision git non taggee pour une branche `main` de production.
+
+Recommendation d'epingle pour la suite:
+
+```swift
+.package(url: "https://github.com/Macthieu/OrchivisteKit.git", exact: "0.2.0")
+```
+
+Exception temporaire (integration locale uniquement, avant merge):
+
+- une revision explicite peut etre toleree pour debogage,
+- mais doit etre remplacee par un pin SemVer stable avant fusion sur `main`.
+
 ## 4) Conventions UI (suite)
 
 - Utiliser des tokens partages (couleurs, espacements, rayons, etats).

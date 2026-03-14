@@ -29,6 +29,10 @@ swift test
 
 Voir `docs/SUITE_STANDARDS.md`.
 
+## Policy de consommation
+
+Les depots consommateurs doivent utiliser un pin SemVer stable sur tag pour `OrchivisteKit` (ex: `exact: "0.2.0"`), et non `branch: "main"` en production.
+
 ## Versionnage
 
 Le projet suit Semantic Versioning.
