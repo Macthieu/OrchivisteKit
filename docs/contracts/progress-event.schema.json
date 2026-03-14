@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://orchiviste.dev/schemas/progress-event.schema.json",
+  "title": "ProgressEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "status", "stage", "occurred_at"],
+  "properties": {
+    "request_id": { "type": "string", "minLength": 1 },
+    "status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "running",
+        "succeeded",
+        "failed",
+        "needs_review",
+        "cancelled",
+        "not_implemented"
+      ]
+    },
+    "stage": { "type": "string", "minLength": 1 },
+    "percent": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "message": { "type": "string" },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "metadata": { "type": "object", "additionalProperties": true }
+  }
+}

@@ -1,21 +1,38 @@
 # OrchivisteKit
 
-OrchivisteKit fournit les briques communes de la suite Orchiviste/Muni.
+OrchivisteKit est la bibliotheque partagee de la suite Orchiviste/Muni.
 
 ## Mission
 
-Centraliser les composants partagés (types, contrats, utilitaires et conventions) pour limiter la duplication entre les dépôts.
+Fournir un socle commun pour les contrats d'integration, la configuration, l'observabilite et l'interop locale CLI JSON.
 
-## Positionnement
+## Modules
 
-- Rôle: kit transverse.
-- OrchivisteKit n'est pas un produit final autonome; il sert de fondation aux applications du cockpit `Orchiviste` et aux outils `Muni*`.
+- `OrchivisteKitContracts`
+- `OrchivisteKitConfig`
+- `OrchivisteKitObservability`
+- `OrchivisteKitInterop`
+
+## Baseline
+
+- Swift 6
+- macOS 14+
+
+## Build et tests
+
+```bash
+swift build
+swift test
+```
+
+## Standards de suite
+
+Voir `docs/SUITE_STANDARDS.md`.
 
 ## Versionnage
 
-- Version initiale de normalisation: `0.1.0`.
-- Le projet suit [Semantic Versioning](https://semver.org/lang/fr/).
+Le projet suit Semantic Versioning.
 
 ## Licence
 
-Ce dépôt est publié sous licence **GNU GPL v3.0**. Voir [LICENSE](LICENSE).
+GNU GPL v3.0, voir [LICENSE](LICENSE).

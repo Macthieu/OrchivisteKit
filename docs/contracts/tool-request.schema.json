@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://orchiviste.dev/schemas/tool-request.schema.json",
+  "title": "ToolRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "tool", "action"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "request_id": { "type": "string", "minLength": 1 },
+    "correlation_id": { "type": "string" },
+    "tool": { "type": "string", "minLength": 1 },
+    "action": { "type": "string", "minLength": 1 },
+    "workspace_path": { "type": "string" },
+    "input_artifacts": {
+      "type": "array",
+      "items": { "$ref": "./artifact-descriptor.schema.json" },
+      "default": []
+    },
+    "parameters": { "type": "object", "additionalProperties": true },
+    "requested_at": { "type": "string", "format": "date-time" }
+  }
+}

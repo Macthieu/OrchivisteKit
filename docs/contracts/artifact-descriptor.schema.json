@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://orchiviste.dev/schemas/artifact-descriptor.schema.json",
+  "title": "ArtifactDescriptor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind", "uri"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "kind": {
+      "type": "string",
+      "enum": ["input", "output", "intermediate", "report", "log", "metadata", "other"]
+    },
+    "uri": { "type": "string", "minLength": 1 },
+    "media_type": { "type": "string" },
+    "checksum": { "type": "string" },
+    "size_bytes": { "type": "integer", "minimum": 0 },
+    "metadata": { "type": "object", "additionalProperties": true }
+  }
+}

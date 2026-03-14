@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://orchiviste.dev/schemas/tool-result.schema.json",
+  "title": "ToolResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "tool", "status"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "request_id": { "type": "string", "minLength": 1 },
+    "tool": { "type": "string", "minLength": 1 },
+    "status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "running",
+        "succeeded",
+        "failed",
+        "needs_review",
+        "cancelled",
+        "not_implemented"
+      ]
+    },
+    "started_at": { "type": "string", "format": "date-time" },
+    "finished_at": { "type": "string", "format": "date-time" },
+    "progress_events": {
+      "type": "array",
+      "items": { "$ref": "./progress-event.schema.json" },
+      "default": []
+    },
+    "output_artifacts": {
+      "type": "array",
+      "items": { "$ref": "./artifact-descriptor.schema.json" },
+      "default": []
+    },
+    "errors": {
+      "type": "array",
+      "items": { "$ref": "./tool-error.schema.json" },
+      "default": []
+    },
+    "summary": { "type": "string" },
+    "metadata": { "type": "object", "additionalProperties": true }
+  }
+}
